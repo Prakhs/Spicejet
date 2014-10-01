@@ -1,0 +1,120 @@
+body {
+   	background: #E3CAA1;
+	}
+#headersection{
+			margin-left: 20%;
+			width:65%;
+			height:12%;
+			background-color: #B40404;
+		}
+header{
+			color:white;
+			font-size: 2.5em;
+			padding-top: 1.5%;
+			padding-left: 1.8%;
+			font-weight: bold;
+		}
+#callcenter{
+			color:yellow;
+			font-size: 1.2em;
+			padding-top: 1.5%;
+			margin-top: -5.7%;
+			margin-left: 33%;
+			
+		}
+#contact{
+			color:white;
+			font-size: 1em;
+			padding-top: 1.2%;
+			margin-top: -5.5%;
+			margin-left: 24%;
+			font-weight: bold;
+		}
+ul {
+		  text-align: left;
+		  display: inline;
+		  margin-left: 200;
+		  padding: 15px 4px 17px 0;
+		  list-style: none;
+		}
+ul li {
+		  color:white;	
+		  font: bold 12px/18px sans-serif;
+		  display: inline-block;
+		  margin-right: -0.5%;
+		  text-align: center;
+		  margin-top:-1%;
+		  position: relative;
+		  padding-left: 2%;
+		  background: #fff;
+		  width:9%;
+		  height:25.5%;
+		  cursor: pointer;		  
+		  border-top-style: solid;
+		  border-color: white;
+		  background-color: #DF3A01;
+		}
+ul li:hover {
+		  background:#B40404 ;
+		  color: white;
+			}
+ul li ul {
+		  color:#DF3A01;
+		  padding: 0;
+		  position: absolute;
+		  top: 140%;
+		  left: 0;
+		  width: 10em;
+		  visibility: hidden;
+		  }
+		ul li ul li { 
+
+			left:-17em;
+			top:-0.7em;
+			width:12em;
+		   text-align: left;		
+		  font-size: 1em;					
+		  border-style: solid;
+		  border-color: red;
+			}
+		ul li ul li:hover { background: #B40404; }
+		ul li:hover ul {  
+		  visibility: visible;
+			}
+		#AU{
+			border-left-style: solid;
+			border-left-color: white; 
+			border-top-style: solid;
+		    border-color: white;
+			border-top-left-radius:0.7em;
+		}	
+
+		#LI{
+			border-right-style: solid;
+			border-right-color: white; 
+			border-top-right-radius: 0.7em;
+			border-top-style: solid;
+		    border-color: white;
+		}	
+
+		#CU,#IV,#SAO,#SO,#TI{
+			border-top-style: solid;
+		    border-color: white;
+		}
+
+#selectionSection{
+	margin-left: 20%;
+	width:65%;
+	height:55%;
+	margin-top:0.2em;
+
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+#select{
+	background-color: pink;
+	width: 40%;
+	height: 40%;
+}

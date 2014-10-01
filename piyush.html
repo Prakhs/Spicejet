@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.1.custom/jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.1.custom/jquery-ui.theme.min.css">
+		<link rel="stylesheet" type="text/css" href="spicejet.css">
+		<script>
+			$().ready(init);
+			function init(){
+				$("tab").tab();}
+				</script>
+	</head>
+	<body>
+		<section id="headersection">
+		<header><i>SpiceJet</i></header>
+		<div id="callcenter">
+			Call Center(24/7)  
+		</div>
+		<div id="contact">
+			<pre>
+				 | From outside India: 	+91 987 180 3333 +91 965 400 3333
+				 | From within India :       0987 180 3333 0965 400 3333
+			</pre>	
+		</div>
+		<div id="menulist">
+			<ul>
+				<li id="AU">About Us
+					<ul>
+			        	<li>Careers</li>
+			            <li>Cargo</li>
+			            <li>Charter Request</li>
+			            <li>Corporate Overview</li>
+			            <li>Fleet</a></li>
+			            <li>Spice Route Magazine</li>
+			        </ul>
+			     </li>   
+			    <li id="CU">Contact Us
+			    	<ul>
+			        	<li>Corporate Head Office</li>
+			            <li>Spice Airports</li>
+			            <li>Spice City International Office</li>
+			            
+			        </ul>
+			    </li>
+			    <li id="IV">Investors
+			       <ul>
+			        	<li>sub menu item 1</li>
+			            <li>sub menu item 2</li>
+			            <li>sub menu item 3</li>
+			            <li>sub menu item 4</li>
+			        </ul>
+			    </li>
+			    <li id="SAO">SpiceAdd-Ons</li>
+			    <li id="SO">Spice Offer</li>
+			    <li id="TI">Travel Info</li>
+			    <li id="LI">Log In</li>
+			</ul>
+		</div>
+	</section>	
+	<section id="selectionSection">
+		<div id="image">
+			<img src="BangkokNewbanner.jpg">
+		</div>
+		<div style="width:35%">
+					<section id="tabs">
+						<ul>
+							<li id="tab1">Flight
+								<ul><div class="tabBoxheader">Bookings open till 24th October 2015</div>
+							
+							<input type="radio" name="trip" value="round" id="two">Round Trip
+							<input type="radio" name="trip" value="one" id="one">One Way
+							
+							<br>
+							<input type="text" placeholder="Leaving From...">
+							<input type="text" placeholder="Going to..">
+							
+							<br>
+							<input type="text" id="LeaveDate">
+							<input type="text" ="comeDate.." id="comeDate">
+
+							<br>
+							<input type="number" id="adultCount">
+							<input type="number" id="childCount">
+							<input type="number" id="infantCount">
+
+							<br>
+							<input type="checkbox" id="IAF">Indian Armed Forces
+							<input type="checkbox" id="student">Student</td>
+							
+							<input type="checkbox" id="voucher">On-Time Guarantee Voucher
+							<input type="checkbox" id="FNF">family and Friends
+							<br><center>
+							<input type="button" value="Find Flights" id="mybutton"></center></ul></li>
+							<li id="tab2">Flight<br>+Hotel</li>
+							<li id="tab3">Manage My<br> Booking</li>
+							<li id="tab4">Web <br> Check-in</li>
+						</ul>
+
+					
+				</section>
+	</section>
+	
+</body>
+</html>

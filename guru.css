@@ -1,0 +1,155 @@
+body,html{
+	height: 1000px;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #fff;
+	font-family: "Arial";
+}
+.main_header{
+	background-color: #b50128;
+	float: left;
+	width: 1000px;
+	height: 100px;
+}
+
+.logo{
+	float:left;
+	width: 50%;
+	height:50%;
+	position: relative;
+	top:10%;
+}
+.spicejet_logo{
+	background: url(images/sprites_images.png) -86px -37px;
+	float: left;
+	width: 40%;
+	height: 120%;
+
+}
+.call_icon{
+	background: url(images/sprites_images.png) -287px -114px no-repeat;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top:2%;
+	left:-15%;
+	float: left;
+}
+.main_header .nav_header{
+	width: 15%;
+	float: left;
+	height: 20%;
+}
+.redtext{
+	color:#FED904;
+	float: left !important;
+
+}
+
+.call_center{
+	border-right:1px solid #FED904;
+	position: relative;
+	top:70%;
+	width: 100%;
+	height: 150%;
+}
+.mobile_num{
+	color: white;
+	position: relative;
+	width: 300%;
+	top:-80%;
+	left: 110%;
+}
+.contact_details{
+	float: left;
+	position: relative;
+	left: -100%;
+	top: 10%;
+	width: 100%;
+	height: 100%;
+}
+.sun_logo_cont{
+	float: right;
+	width: 30%;
+	height: 355%;
+	position: relative;
+	left: 230%;
+	top:30%;
+}
+.sun_logo{
+	background: url(../images/sprites_images.png) -287px -1px;
+	width: 100%;
+	height: 100%;
+}
+.menu{
+	border-style: inset;
+	border-width: 1%;
+	border-color: white;
+	position: relative;
+	float: left;
+	left: -130%;
+	top:-110%;
+	width: 400%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 0.7em;
+}
+.menu ul{
+	list-style-type: none;
+	margin: 0;
+}
+
+.menu ul li{
+	display: inline;
+}
+.ui-menu { 
+ width: 100%; 
+}
+.content{
+	background-image: url(images/BangkokNew_banner.jpg);
+	background-repeat: no-repeat;
+	position: absolute;
+	top:13%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+}
+.booking_container{
+	background-color: #eeeced;
+	position: absolute;
+	top:15%;
+	left: 1%;
+	width: 23%;
+	height: 45%;
+	z-index: 13;
+	box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+	font-size: 0.57em;
+}
+/*#city_container{
+	z-index: 16;
+	background-color:#eeeced;
+	font-size: 0.6em;
+	position: absolute;
+	width: 30%;
+	height: 40%;
+	top:30%;
+	left: 2%;
+	display: none;
+}*/
+#city_container table{
+	width: 100%;
+}
+#city_container table tbody tr{
+	margin: 1%;
+	padding: 1%;
+}
+td{
+	text-align: center;
+	vertical-align: bottom;
+}
+.ui-datepicker{
+	font-size: 0.6em;
+}

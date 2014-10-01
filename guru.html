@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spicejet - Low cost domestic and International airfares</title>
+	<link rel="stylesheet" type="text/css" href="jquery-ui-custom/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="jquery-ui-custom/jquery-ui.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery-ui-custom/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+  GLOBAL ={
+    cities:[],
+    focusSource:""
+  }
+		$().ready(function(){
+			$("#main_menu").menu({position:{my:"bottom",at:"right-30 top-5"}});
+			$( "#tabs" ).tabs();
+			$("#find_flight").button();
+			$("#from").on("focus",loadCities);
+      $("#to").on("focus",loadCities);
+      
+      $("#from_date").datepicker({dateFormat:"dd-mm-yy"});
+      $("#to_date").datepicker({dateFormat:"dd-mm-yy"});
+
+		});
+
+		function loadCities(eventObject){
+      console.log(GLOBAL.cities.length);
+      console.log(eventObject.target.id);
+      GLOBAL.focusSource = eventObject.target.id;
+      if(GLOBAL.cities.length == 0){
+              $.ajax({
+        url:"airports.json",
+        method:"GET",
+        dataType:"json",
+        success:function(response){
+          var airports = response.airports;
+          var table = "<table><thead><tr><th>India</th></tr></thead><tbody>";
+          GLOBAL.cities = airports;
+          for(var i = 0;i < airports.length;i++){
+            if(i == 0){
+              table += "<tr>";
+            }
+            else if(i % 4 != 0){
+              table += "<td><span class='ui-button ui-button-text-only ui-button-text'>" + airports[i].city + " (" + airports[i].code +")" + "</span></td>"
+            }
+            else{
+              table += "</tr>";
+              table += "<tr>";
+              table += "<td><span class='ui-button ui-button-text-only ui-button-text'>" + airports[i].city + "(" + airports[i].code + ")" +"</span></td>";
+            }
+          }
+          table += "</tbody></table>"
+          $("#city_container").html(table);
+
+         $("table tbody tr td span").on("click",cityClicked);
+          $("table tbody tr td span").on("mouseover",cityMouseOver);
+          $("table tbody tr td span").on("mouseout",cityMouseOut);
+          $("#city_container").dialog({width:600});
+         
+          $("#city_container").dialog({position:{at:"left+10% top-15%",of:"#form"}});
+          $("#city_container").dialog({appendTo:"#form"});
+          $("#city_container").dialog({
+            close:function(){
+              $("#city_container").dialog("destroy");
+              $("#city_container").html("");
+            }
+          });
+          
+
+        },
+        error:function(xhr){
+          console.log("Error");
+        }
+      });
+    }else{
+      var table = "<table><tbody>";
+       var airports = GLOBAL.cities;
+      for(var i = 0;i< airports.length;i++){
+       
+        if(i == 0){
+              table += "<tr>";
+            }
+            else if(i % 4 != 0){
+              table += "<td><span class='ui-button ui-button-text-only ui-button-text'>" + airports[i].city + " (" + airports[i].code +")" + "</span></td>"
+            }
+            else{
+              table += "</tr>";
+              table += "<tr>";
+              table += "<td><span class='ui-button ui-button-text-only ui-button-text'>" + airports[i].city + "(" + airports[i].code + ")" +"</span></td>";
+            }
+      }
+
+       table += "</tbody></table>"
+          $("#city_container").html(table);
+          $("table tbody tr td span").on("click",cityClicked);
+           $("table tbody tr td span").on("mouseover",cityMouseOver);
+           $("table tbody tr td span").on("mouseout",cityMouseOut);
+              $("#city_container").dialog({width:600});
+              
+              $("#city_container").dialog({position:{at:"left+10% top-15%",of:"#form"}});
+              $("#city_container").dialog({appendTo:"#form"});
+              $("#city_container").dialog({
+                close:function(){
+                  $("#city_container").dialog("destroy");
+                  $("#city_container").html("");
+                }
+            });
+          
+      
+
+    }
+
+		}
+
+    function cityClicked(eventObject){
+      $("#"+GLOBAL.focusSource).val($(eventObject.target).text());
+      $("#city_container").dialog("destroy");
+      $("#city_container").html("");
+    }
+    function cityMouseOver(eventObject){
+       $("#"+GLOBAL.focusSource).val($(eventObject.target).text());
+       $(eventObject.target).css("background-color","pink");
+    }
+
+    function cityMouseOut(eventObject){
+      $(eventObject.target).css("background-color","inherit");
+    }
+
+	</script>
+</head>
+<body>
+	<div id="main_container">
+		<div class="header">
+			<div class="main_header">
+				<div class="logo">
+					<a href="" class="spicejet_logo" title="SpiceJet"></a>
+				</div>
+				<div class="nav_header">
+					<div class="contact_details">
+						<div class="call_center">
+							<span class="call_icon"></span>
+							<span class="redtext">Call Center (24/7)</span>
+						</div>
+						<div class="mobile_num">
+							<span>From outside India:+91 987 180 3333 +91 965 400 3333</span><br/>
+							<span>From within India: 0987 180 3333 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0965 400 3333</span>
+						</div>
+					</div>
+						<div class="sun_logo_cont">
+							<div class="sun_logo"></div>
+						</div>
+					<div class="menu">
+							<ul id="main_menu">
+								<li><a href="">About us</a>
+									<ul>
+                                        <li><a href="">Careers </a></li>
+                                        <li><a href="">Cargo </a></li>
+                                        
+                                        <li><a href="">Charter Request </a></li>
+                                        
+                                        <li><a href="">Corporate Overview </a></li>
+                                        <li><a href="">Fleet </a></li>
+                                        <li><a href="">Spice Route Magazine </a>
+                                        </li>
+                                    </ul>
+								</li>
+								<li><a href="">Contact us</a></li>
+								<li><a href="">Investors</a></li>
+								<li><a href="">SpiceAdd-ons</a></li>
+								<li><a href="">Spice Offers</a></li>
+								<li><a href="">Travel Info</a></li>
+								<li><a href="">Login</a></li>
+							</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content_container" class="content"></div>
+		<div class="booking_container">
+			<div id="tabs">
+				<ul>
+    				<li><a href="#tabs-1">Flight</a></li>
+    				<li><a href="#tabs-2">Flight+Hotel</a></li>
+    				<li><a href="#tabs-3">Manage My Booking</a></li>
+    				<li><a href="#tabs-4">Web Check-in</a></li>
+  				</ul>
+
+  				<div id="tabs-1"><p style="font-weight:bold">Bookings Open till 25th October 2015</p>
+  					<div id="form">
+  						
+  						<table>
+  							<tbody>
+  								<tr><td><input type="radio" name="trip" checked><label>Round Trip</label></td><td><input type="radio" name="trip"><label>One Way</label></td></tr>
+  							</tbody>
+  						</table>
+  						<table>
+  							<tbody>
+  								<tr>
+  									<td><input type="text" placeholder="Leaving from..." id="from"></td><td><input type="text" placeholder="Going to.." id="to"></td>
+  								</tr>
+  								<tr>
+  									<td><input type="text" id="from_date"></td><td><input type="text" id="to_date"></td>
+  								</tr>
+  							</tbody>
+  						</table>
+  						<table>
+  							<tbody>
+
+  								<tr>
+  									<td>
+  										<select>
+  											<option>1 Adult</option>
+  											<option>2 Adult</option>
+  											<option>3 Adult</option>
+  											<option>4 Adult</option>
+  											<option>5 Adult</option>
+  										</select>
+  									</td>
+  									<td>
+  										<select>
+  											<option>0 Children</option>
+  											<option>1 Children</option>
+  											<option>2 Children</option>
+  											<option>3 Children</option>
+  											<option>4 Children</option>
+  										</select>
+  									</td>
+  									<td>
+  										<select>
+  											<option>0 Infant</option>
+  											<option>1 Infant</option>
+  											<option>2 Infant</option>
+  											<option>3 Infant</option>
+  											<option>4 Infant</option>
+  										</select>
+  									</td>
+  								</tr>
+  								
+  							</tbody>
+  						</table>
+  						<table>
+  							<tbody>
+  								<tr>
+  									<td><input type="checkbox"><label>Indian Armed Forces</label></td>
+  									<td><input type="checkbox"><label>Student</label></td>
+  								</tr>
+  								<tr>
+  									<td><input type="checkbox"><label>On-time Gurantee Voucher</label></td>
+  									<td><input type="checkbox"><label>Family and Friends</label></td>
+  								</tr>
+  							</tbody>
+  						</table>
+              <br><br>
+  						<center>
+  							<button id="find_flight">Find Flights</button>
+  						</center>
+  							
+  					</div>
+
+  				</div>
+  				<div id="tabs-2">Tab 2</div>
+  				<div id="tabs-3">Tab 3</div>
+  				<div id="tabs-4">Tab 4</div>
+			</div>
+
+		</div>
+	</div>
+	<div id="city_container" title="India">
+						
+	</div>
+</body>
+</html>
